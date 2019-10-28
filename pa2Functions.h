@@ -8,6 +8,7 @@ using namespace std;
 #include <string.h>
 #include <cmath>
 #include <sstream>
+#include <cstdlib>
 
 //function prototypes
 void initialize();
