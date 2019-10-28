@@ -1,71 +1,49 @@
-#include<iostream>
+#include "pa2Functions.h"
 using namespace std;
+extern const int ENTRIES = 10;
+int entryCount = 0;
+string* inputPtr;
+bool writing = false;
 
 int main(){
-	//intialize an array for input
-	float GPA = 0.0;
-	string grades[5];
-	float gradeNums[5];
-	string checks[10] = {"A","A-","B+","B","B-","C+","C","C-","D","F"};
-	//get all grades and check their inputs using a loop
-	for(int i = 0; i<=4; i++){
-		cout << "Class: " << i+1 << endl;
-		cin >> grades[i];
-		//check for valid input using for loop and a boolean
-		bool isEqual = false; 
-		for(int j = 0; j <=9; j++){
-			if(grades[i] == checks[j]){
-					isEqual = true;
-			}
+	//intialize it
+	string inputCommand;
+	initialize();
+	//begin loop for program
+	while(entryCount <= ENTRIES){
+		//initialize some variables and pointers for future use
+		string fileName;
+		inputPtr = &inputCommand;
+		//get input command
+		cout << "Please enter command code: ";
+		cin >> inputCommand;
+		//check if input command is valid
+		while(checkCode(inputCommand) == false){
+			cout << "Invalid code entered!" << "\n";
+			cout << "Please enter valid command code: ";
+			cin >> inputCommand;
 		}
-		//if grades doesn't equal a valid grade go to end of main 
-		if(isEqual == false){
-			cout << "Invalid input!" << endl;
-			goto breaktag;
-		}
-	}
-	//if the program has made it here, proper grades are in
-	//convert them to numbers
-	for(int i = 0; i<=4; i++){
-		if(grades[i] == "A"){
-			gradeNums[i] = 4;
-		}
-		else if(grades[i] == "A-"){
-			gradeNums[i] = 3.7;
-		}
-		else if(grades[i] == "B+"){
-			gradeNums[i] = 3.3;
-		}
-		else if(grades[i] == "B"){
-			gradeNums[i] = 3.0;
-		}
-		else if(grades[i] == "B-"){
-			gradeNums[i] = 2.7;
-		}
-		else if(grades[i] == "C+"){
-			gradeNums[i] = 2.3;
-		}
-		else if(grades[i] == "C"){
-			gradeNums[i] = 2.0;
-		}
-		else if(grades[i] == "C-"){
-			gradeNums[i] = 1.7;
-		}
-		else if(grades[i] == "D"){
-			gradeNums[i] = 1.0;
-		}
-		else{
-			gradeNums[i] = 0;
+		//whats the command supposed to do?
+		//everything is done in a function to make it easy
+		cout << "You selected the " << getCommandName(inputCommand) << " function." << "\n";
+		//quit write or read?
+		if(((inputCommand == "q") || (inputCommand == "Q")) || entryCount >= ENTRIES){
+			//Quit program
+			break;
+		}else if((inputCommand == "i" || inputCommand == "I")){
+			//read from file
+			cout << "enter filename: " << "\n";
+			cin >> fileName;
+			readDataFromFile(fileName.c_str());
+		}else if((inputCommand == "o" || inputCommand == "O")){
+			//Write to Output file
+			cout << "enter filename: " << "\n";
+			writeDataToFile(fileName.c_str());
+		}else{
+			//just run the command!
+			runCommand(inputCommand);
 		}
 	}
-	
-	
-	//avg all grades and output GPA
-	for (int i = 0; i<=4; i++){
-		GPA += gradeNums[i];
-	}
-	cout << "GPA: " << GPA/5.0 << endl;
-	
-	breaktag:
+	cout << "Program has quit! Either too many entries or quit command was entered.";
 	return 0;
 }

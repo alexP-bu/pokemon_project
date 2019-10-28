@@ -1,53 +1,41 @@
 #include <iostream>
+
 using namespace std;
 
-int findDistance(int, int);
-string convertNumber(int);
+int* reverseMultiply(int*, int);
 
 int main(){
-	 int num1,num2;
-	 //get the two numbers
-	 cout << "Enter two numbers between 0-100: " << endl;
-	 cin >> num1 >> num2; 
-	 //output 
-	 cout << "Hamming distance between " << num1 << " and " << num2
-		  << " when numbers are in ternary format is: " << findDistance(num1,num2) << endl;
-	 
+	int size = 5;
+	int a[size] = {1,2,3,4,5};
+	//reverseMulitply B
+	int* b = reverseMultiply(a,size);
+	for (int i = 0; i<9; i++){
+		cout << b[i];
+	}
 	
-	return 0;
 }
 
-int findDistance(int a, int b){
-	//I couldn't figure out the arithmetic way to do it, so I did it by converting to ternary
-	//both strings returned are the same length of 5
-	string ternary1,ternary2;
-	int counter;
-	ternary1 = convertNumber(a);
-	ternary2 = convertNumber(b);
-	for(int i = 0; i < 5; i++){
-		if(ternary1[i] != ternary2[i]){
-			counter++;
-		}
+int* reverseMultiply(int* list, int size){
+	int newSize = (int)(size*2) + 1;
+	
+	int newArray[newSize];
+	//load old values into new array 
+	for(int i = 0; i < size; i++){
+		newArray[i] = list[i];
 	}
-	return counter;
-}
-
-string convertNumber(int a){
-	//digits in ternary:
-	//3^4  3^3 3^2 3^1 3^0
-	// 81   27  9   3   1
-	//max digits from 0-100 in ternary is 5
-	int temp = a;
-	string ternaryNum;
-	//long division method to convert to ternary
-	while(temp > 0){
-		int remainder = temp%3;
-		ternaryNum = ternaryNum + to_string(remainder);
-		temp /= 3;
-		if (temp <= 3){
-			ternaryNum = ternaryNum + to_string(temp);
-			temp = 0;
-		}
+	//load them in backwards again
+	int temp = size;
+	for(int i = size; i < size*2; i++){
+		newArray[i] = list[temp];
+		temp--;
 	}
-		return ternaryNum;
+	//now find their product
+	int product = 1;
+	for(int i = 0; i < newSize; i++){
+		product *= newArray[i];
+	}
+	
+	//put product in last 
+	newArray[newSize - 1] = product;
+	return newArray;
 }
