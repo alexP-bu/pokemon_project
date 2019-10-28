@@ -175,7 +175,7 @@ void readDataFromFile(const char * fileName){
 			//format string by removing any newlines - needed to do this for windows
 			//because all files must end in q it'll work
 			cout << "Line " << counter << " in file reads: " << line << "\n";
-			line.erase(line.size() - 1);
+			//line.erase(line.size() - 1);
 			//now run the commands
 			if((counter % 2) == 1){
 				//if quit
@@ -189,8 +189,8 @@ void readDataFromFile(const char * fileName){
 					temp = line;
 					getline(file1,line);
 					cout << "Line " << counter << " in file reads: " << line << "\n";
-					//remove the newline character at the end
-					line.erase(line.size() - 1);
+					//remove the newline character at the end if on windows
+					//line.erase(line.size() - 1);
 					//convert to integer
 					stringstream inputConversion(line);
 					double input = 0;
@@ -205,7 +205,8 @@ void readDataFromFile(const char * fileName){
 					temp = line;
 					getline(file1,line);
 					cout << "Line " << counter << " in file reads: " << line << "\n";
-					//remove the newline character at the end
+					//remove the newline character at the end if on windows
+					//line.erase(line.size() - 1);
 					//split string at space
 					char* half2;
 					char* tempread;
@@ -229,7 +230,8 @@ void readDataFromFile(const char * fileName){
 					temp = line;
 					getline(file1,line);
 					cout << "Line " << counter << " in file reads: " << line << "\n";
-					//remove the newline character at the end
+					//remove the newline character at the end if on windows
+					//line.erase(line.size() - 1);
 					//split string at space
 					char* half2;
 					char* half3;
