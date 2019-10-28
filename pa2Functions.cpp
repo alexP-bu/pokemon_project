@@ -12,7 +12,7 @@ void writeDataToFile(const char * fileName){
 	ofstream file2;
 	file2.open(fileName);
 	
-	if(file2.is_open){
+	if(file2.is_open()){
 		writing = true;
 	}else{
 		cout << "File open error - make sure a file with your name is made!";
