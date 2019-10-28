@@ -10,7 +10,7 @@ using namespace std;
 void writeDataToFile(const char * fileName){
 	cout << "Writing output of program to file " << fileName << "\n";
 	ofstream file2;
-	file1.open(fileName);
+	file2.open(fileName);
 	
 	if(file2.is_open){
 		writing = true;
