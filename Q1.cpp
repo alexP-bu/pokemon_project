@@ -44,6 +44,6 @@ int main(){
 			runCommand(inputCommand);
 		}
 	}
-	cout << "Program has quit! Either too many entries or quit command was entered.";
+	cout << "Program has quit! Either too many entries or quit command was entered." << "\n";
 	return 0;
 }
