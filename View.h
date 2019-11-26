@@ -2,7 +2,7 @@
 #define VIEW_H
 
 #include "Point2D.h"
-#include "Gameobject.h"
+#include "GameObject.h"
 
 using namespace std;
 
