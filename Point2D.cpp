@@ -24,8 +24,8 @@ double GetDistanceBetween(Point2D p1, Point2D p2){
 	double y1 = p1.y;
 	double y2 = p1.y;
 	
-	double xSq = pow(abs(x1-x2),2);
-	double ySq = pow(abs(x1-x2),2);
+	double xSq = pow(fabs(x1-x2),2);
+	double ySq = pow(fabs(x1-x2),2);
 	
 	return sqrt(xSq + ySq);
 }
