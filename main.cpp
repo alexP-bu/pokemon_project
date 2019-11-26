@@ -37,7 +37,7 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
             << '\n';                                                                                          
 	while(inputCommand != 'q'){
 		
-		//Model1.ShowStatus();
+		Model1.ShowStatus();
 		
 		cout << "Current time: " << Model1.getTime() << endl;
 		
