@@ -16,7 +16,7 @@ void DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id){
 
 void DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id){
 	cout << "Moving " << (model.GetPokemonPtr(pokemon_id)) -> getName() << " to gym " << gym_id << endl;
-	model.GetPokemonPtr(pokemon_id) -> StartMovingToGym(model.GetPokemonGymPtr(gym_id));
+	model.GetPokemonPtr(pokemon_id) -> Pokemon::StartMovingToGym(model.GetPokemonGymPtr(gym_id));
 }
 
 void DoStopCommand(Model& model, int pokemon_id){
