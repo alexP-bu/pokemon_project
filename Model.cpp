@@ -84,7 +84,7 @@ bool Model::Update(){
 
 void Model::ShowStatus(){
 	for(int i = 0; i < 5; i++){
-		//object_ptrs[i] -> ShowStatus();
+		object_ptrs[i] -> ShowStatus();
 	}
 }
 
