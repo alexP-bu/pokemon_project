@@ -11,7 +11,7 @@
 #include <string>
 
 using namespace std;
-
+//model construction - can be changed but this was the setup in the document
 Model::Model(){
 	time = 0;
 	
@@ -36,7 +36,7 @@ Model::Model(){
 	
 	cout << "Model default constructed" << endl;
 }
-
+//destructor for each pointer
 Model::~Model(){
 	for (int i = 0; i < 5; i++){
 		delete object_ptrs[i];
@@ -44,20 +44,20 @@ Model::~Model(){
 	
 	cout << "GameObject destrcuted" << endl;
 }
-
+//get pokemon pointer
 Pokemon* Model::GetPokemonPtr(int id){
 	return pokemon_ptrs[id-1];
 }
-
+//get center pointer
 PokemonCenter* Model::GetPokemonCenterPtr(int id){
 	return center_ptrs[id-1];
 }
-
+//get gym pointer
 PokemonGym* Model::GetPokemonGymPtr(int id){
 	return gym_ptrs[id-1];
 }
 
-
+//update the model
 bool Model::Update(){
 	time++;
 	bool tempStore = false;
@@ -80,14 +80,16 @@ bool Model::Update(){
 	
 	return tempStore;
 }
-//void Display(View& view)
 
+//display info for everything in the model
 void Model::ShowStatus(){
 	for(int i = 0; i < 5; i++){
 		object_ptrs[i] -> ShowStatus();
 	}
 }
-
+//function i made to get current time
 int Model::getTime(){
 	return time;
 }
+
+//void Display(View& view)

@@ -7,10 +7,10 @@
 using namespace std;
 
 class Building : public GameObject{
+	//private members
 	private:
-	
 	unsigned int pokemon_count = 0;
-	
+	//public members
 	public: 
 	//constructors
 	Building();

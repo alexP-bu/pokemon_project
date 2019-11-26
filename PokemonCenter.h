@@ -5,7 +5,7 @@
 #include "Building.h"
 
 using namespace std;
-
+//enumeration block
 enum PokemonCenterStates {
 		STAMINA_POINTS_AVAILABLE = 0,
 		NO_STAMINA_POINTS_AVAILABLE = 1
@@ -13,7 +13,7 @@ enum PokemonCenterStates {
 
 class PokemonCenter : public Building{
 	private:
-	
+	//private members
 	unsigned int stamina_capacity;
 	unsigned int num_stamina_points_remaining;
 	double dollar_cost_per_stamina_point;

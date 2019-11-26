@@ -117,6 +117,13 @@ void Pokemon::StartRecoveringStamina(unsigned int num_stamina_points){
 void Pokemon::Stop(){
 	state = STOPPED;
 	cout << display_code << id_num << ": Stopping..." << endl;
+	if(current_center != NULL){
+		current_center = NULL;
+	}
+	
+	if (current_gym != NULL){
+		current_gym = NULL;
+	}
 }
 
 bool Pokemon::isExhausted(){

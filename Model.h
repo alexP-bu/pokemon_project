@@ -12,10 +12,9 @@
 using namespace std;
 
 class Model{
+	//private members
 	private:
-	
 	int time;
-	
 	GameObject* object_ptrs[10];
 	int num_objects;
 	Pokemon* pokemon_ptrs[10];
@@ -24,16 +23,13 @@ class Model{
 	int num_centers;
 	PokemonGym* gym_ptrs[10];
 	int num_gyms;
-	
+	//public members
 	public:
-	
 	Model();
 	~Model();
-	
 	Pokemon* GetPokemonPtr(int);
 	PokemonCenter* GetPokemonCenterPtr(int);
 	PokemonGym* GetPokemonGymPtr(int);
-	
 	bool Update();	
 	//void Display(View&);
 	void ShowStatus();

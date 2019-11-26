@@ -6,12 +6,13 @@
 using namespace std;
 
 class GameObject{
+	//protected members
 	protected:
 	Point2D location;
 	int id_num;
 	char display_code;
 	char state;
-
+	//public members
 	public:
 	//PURE VIRTUAL FUCTIONS
 	virtual bool ShouldBeVisible() = 0;
@@ -27,6 +28,8 @@ class GameObject{
 	Point2D GetLocation();
 	int GetId();
 	char GetState();
+	//for view
+	void DrawSelf(char*);
 };
 
 #endif

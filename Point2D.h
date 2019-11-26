@@ -20,6 +20,7 @@ class Point2D{
 double GetDistanceBetween(Point2D, Point2D);
 //overloaded functions
 Point2D operator+(Point2D, Point2D);
+//overloaded the == function for later
 bool operator==(Point2D, Point2D);
 Vector2D operator-(Point2D, Point2D);
 ostream& operator<<(ostream &out, Point2D);

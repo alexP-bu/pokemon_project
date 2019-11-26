@@ -10,6 +10,7 @@ class Vector2D{
 //public members x and y coordinates
 	double x;
 	double y;
+	//base constructors
 	Vector2D();
 	Vector2D(double, double);
 };

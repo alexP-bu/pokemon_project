@@ -36,16 +36,16 @@ _,-'       `.     |    |  /`.   \,-'    |   \  /   |   |    \  |`.
                                 )"
             << '\n';                                                                                          
 	while(inputCommand != 'q'){
-		
+		//show status of everything
 		Model1.ShowStatus();
-		
+		//show time
 		cout << "Current time: " << Model1.getTime() << endl;
-		
+		//get command from user
 		cout << "Enter a command!" << endl;
 		cout << "Commands include: m,g,c,s,r,t,v,x,q" << endl;
 		cin >> inputCommand;
+		//deal with user input in a seperate function
 		handleInput(inputCommand, Model1);
-		
 	}
 	cout << "Program has exited! Thanks for playing." << endl;
 	return 0;

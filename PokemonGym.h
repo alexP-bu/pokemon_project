@@ -13,7 +13,7 @@ enum PokemonGymStates{
 
 class PokemonGym : public Building{
 	private:
-	
+	//private members
 	unsigned int num_training_units_remaining;
 	unsigned int max_number_of_training_units;
 	unsigned int stamina_cost_per_training_unit;

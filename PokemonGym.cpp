@@ -5,7 +5,8 @@
 #include <cmath>
 
 using namespace std;
-
+//default constructor
+//code is G, default values are 10,1,1.0,2
 PokemonGym::PokemonGym(){
 	display_code = 'G';
 	state = NOT_BEATEN;
@@ -17,6 +18,7 @@ PokemonGym::PokemonGym(){
 	cout << "PokemonGym default constructed" << endl;
 }
 //CHECK DEFAULT MEMBER VARS
+//checked! all works - set up a pokemon gym with input values
 PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cost, 
 					   double dollar_cost, unsigned int exp_points_per_unit, int in_id, Point2D in_loc){
 						   
@@ -32,18 +34,20 @@ PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cos
 	//rest of member vars to default
 	cout << "PokemonGym constrcuted" << endl;
 }
-
+//return dollar cost for training operation
 double PokemonGym::GetDollarCost(unsigned int unit_qty){
 	return unit_qty * dollar_cost_per_training_unit;
 }
-
+//return stamina cost for training operation
 unsigned int PokemonGym::GetStaminaCost(unsigned int unit_qty){
 	return unit_qty * stamina_cost_per_training_unit;
 }
+//return number of training points the gym has left
 unsigned int PokemonGym::GetNumTrainingRemaining(){
 	return num_training_units_remaining;
 }
 
+//can I afford to train there? based on budget
 bool PokemonGym::IsAbleToTrain(unsigned int unit_qty, double budget, unsigned int stamina){
 	if ((GetDollarCost(unit_qty) <= budget) && (GetStaminaCost(unit_qty) <= stamina)){
 		return true;
@@ -51,16 +55,23 @@ bool PokemonGym::IsAbleToTrain(unsigned int unit_qty, double budget, unsigned in
 		return false;
 	}
 }
+
+//train pokemon 
 unsigned int PokemonGym::TrainPokemon(unsigned int training_units){
+	//if the gym has more training points than requested
+	//subtract points from gym and add experience points
 	if(num_training_units_remaining <= training_units){
 		num_training_units_remaining -= training_units;
 		return training_units * experience_points_per_training_unit;
 	}else{
+		//if the gym is going to run out of points, just use whats left
 		return num_training_units_remaining * experience_points_per_training_unit;
 		num_training_units_remaining = 0;
 	}
 }
 //CHECK
+//checked and works!
+//checks if gym has been beaten or not - returns true one time as requested
 bool PokemonGym::Update(){
 	if((num_training_units_remaining == 0) && (state != BEATEN)){
 		state = BEATEN;
@@ -71,7 +82,7 @@ bool PokemonGym::Update(){
 		return false;
 	}
 }
-
+//if theres no more training units, the gym has been beaten
 bool PokemonGym::IsBeaten(){
 	if(num_training_units_remaining == 0){
 		return true;
@@ -79,6 +90,7 @@ bool PokemonGym::IsBeaten(){
 		return false;
 	}
 }
+//output hte status of a pokemon gym - useful for debugging
 void PokemonGym::ShowStatus(){
 	cout << "Pokemon Gym Status: " << endl;
 	Building::ShowStatus();
@@ -88,7 +100,7 @@ void PokemonGym::ShowStatus(){
 	cout << "Experience points per training unit: " << experience_points_per_training_unit << endl;
 	cout << num_training_units_remaining << " training unit(s) are remaining for this gym." << endl;
 }
-
+//destructor that doesnt actually do anything except print that stuff was destructed
 PokemonGym::~PokemonGym(){
 	cout << "PokemonGym destructed" << endl;
 }

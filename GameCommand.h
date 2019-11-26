@@ -6,7 +6,7 @@
 #include "Model.h"
 
 using namespace std;
-
+//prototypes for gamecommand functions
 void DoMoveCommand(Model&, int, Point2D);
 
 void DoMoveToCenterCommand(Model&, int, int);

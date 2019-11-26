@@ -25,10 +25,10 @@ enum PokemonStates {
 
 class Pokemon : public GameObject{
 	protected: 
-	
+	//protected members
 	bool UpdateLocation();
 	void SetupDestination(Point2D);
-	
+	//private members
 	private:
 	
 	double speed;
@@ -44,7 +44,7 @@ class Pokemon : public GameObject{
 	PokemonGym* current_gym = NULL;
 	Point2D destination;
 	Vector2D delta;
-	
+	//public members
 	public:
 	//constructors
 	Pokemon();
@@ -67,7 +67,7 @@ class Pokemon : public GameObject{
 	string getName();
 	
 };
-
+//function to get $
 double GetRandomAmountOfPokemonDollars();
 
 #endif
