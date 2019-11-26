@@ -76,7 +76,7 @@ void Pokemon::StartMovingToGym(PokemonGym* gym){
 void Pokemon::StartTraining(unsigned int num_training_units){
 	if(isExhausted() == true){
 		cout << display_code << id_num << ": I am exhausted so no more training for me..." << endl;
-	}else if(is_in_gym == false){
+	}else if(!IN_GYM){
 		cout << display_code << id_num << ": I can only train in a Pokemon Gym!" << endl;
 	}else if(current_gym -> IsBeaten()){
 		cout << display_code << id_num << ": Cannot train! This Pokemon Gym is already Beaten!" << endl;
@@ -240,7 +240,7 @@ bool Pokemon::Update(){
 //REFER TO MOVES
 bool Pokemon::UpdateLocation(){
 	if(((location.x - destination.x) <= 1) && ((location.y - destination.y) <= 1)){
-		cout << display_code << " " << id_num << ": I'm there!" << endl;
+		cout << display_code << id_num << ": I'm there!" << endl;
 		location = destination;
 		return true;
 	}else{
