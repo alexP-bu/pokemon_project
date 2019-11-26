@@ -68,7 +68,7 @@ void Pokemon::StartMovingToGym(PokemonGym* gym){
 	}else{
 
 		cout << display_code << id_num << ": on my way to gym " << gym -> GetId() << endl;
-		//state = MOVING_TO_GYM;
+		state = MOVING_TO_GYM;
 	}
 }
 
