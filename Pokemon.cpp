@@ -151,14 +151,14 @@ void Pokemon::ShowStatus(){
 			cout << name << " is currently exhausted" << endl;
 			break;
 		}case 3:{
-			//cout << name << " is currently inside Pokemon Gym " << current_gym -> GetId() << endl;
+			cout << name << " is currently inside Pokemon Gym " << current_gym -> GetId() << endl;
 			break;
 		}case 4:{
 			cout << name << " is currently inside Pokemon Center " << current_center -> GetId() << endl;
 			break;
 		}case 5:{
-			cout << name << " is currently moving to Pokemon Gym" << current_gym -> GetId() << " at a speed of " << speed 
-				 << " in steps of " << delta << "." << endl;
+			//cout << name << " is currently moving to Pokemon Gym" << current_gym -> GetId() << " at a speed of " << speed 
+			//	 << " in steps of " << delta << "." << endl;
 				 break;
 		}case 6:{
 			cout << name << " is currently moving to Pokemon Center" << current_center -> GetId() << " at a speed of " << speed 
