@@ -189,6 +189,8 @@ bool Pokemon::Update(){
 			}
 			ShowStatus();
 			break;
+		}case 2: {
+			return false;
 		}case 3:{
 			return false;
 		}case 4:{
