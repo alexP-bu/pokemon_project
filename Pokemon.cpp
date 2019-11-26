@@ -151,7 +151,7 @@ void Pokemon::ShowStatus(){
 			cout << name << " is currently exhausted" << endl;
 			break;
 		}case 3:{
-			cout << name << " is currently inside Pokemon Gym " << current_gym -> GetId() << endl;
+			//cout << name << " is currently inside Pokemon Gym " << current_gym -> GetId() << endl;
 			break;
 		}case 4:{
 			cout << name << " is currently inside Pokemon Center " << current_center -> GetId() << endl;
