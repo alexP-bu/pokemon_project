@@ -55,6 +55,7 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center){
 		cout << display_code << id_num << " I am already at the Pokemon Center!" << endl;
 	}else{
 		cout << display_code << id_num << " on my way to center " << center -> GetId() << endl;
+		current_center = center;
 		state = MOVING_TO_CENTER;
 	}
 }
@@ -66,8 +67,8 @@ void Pokemon::StartMovingToGym(PokemonGym* gym){
 	}else if((GetDistanceBetween(location,(gym->GetLocation()))) == 0){
 		cout << display_code << id_num << ": I am already at the Pokemon Gym!" << endl;
 	}else{
-
 		cout << display_code << id_num << ": on my way to gym " << gym -> GetId() << endl;
+		current_gym = gym;
 		state = MOVING_TO_GYM;
 	}
 }
@@ -157,7 +158,7 @@ void Pokemon::ShowStatus(){
 			cout << name << " is currently inside Pokemon Center " << current_center -> GetId() << endl;
 			break;
 		}case 5:{
-			cout << name << " is currently moving to Pokemon Gym" << /*current_gym -> GetId() << */" at a speed of " << speed 
+			cout << name << " is currently moving to Pokemon Gym" << current_gym -> GetId() << */" at a speed of " << speed 
 				 << " in steps of " << delta << "." << endl;
 				 break;
 		}case 6:{
